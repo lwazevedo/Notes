@@ -1,9 +1,7 @@
 import React from 'react';
+import { Header } from '../../components';
+
 import './about.scss';
-const About = () => (
-  <div className='about'>
-    <h1>Note.js</h1>
-  </div>
-);
+const About = () => <Header centered>Note.js</Header>;
 
 export default About;

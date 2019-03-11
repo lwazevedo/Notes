@@ -5,5 +5,15 @@ import NewNote from './NewNote/NewNote';
 import Note from './Note/Note';
 import NoteList from './NoteList/NoteList';
 import PageLayout from './Pagelayout/PageLayout';
+import Header from './Header/Header';
 
-export { AppBar, NavigationDrawer, Error, NewNote, Note, NoteList, PageLayout };
+export {
+  AppBar,
+  NavigationDrawer,
+  Error,
+  NewNote,
+  Note,
+  NoteList,
+  PageLayout,
+  Header
+};
