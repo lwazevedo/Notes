@@ -1,5 +1,5 @@
 import React from 'react';
-import Note from '../Note/Note';
+import { Note } from '../index';
 import './note-list .scss';
 
 const NoteList = ({ notes, onMove, onDelete, onEdit }) => (
