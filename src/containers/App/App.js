@@ -2,12 +2,13 @@ import React, { Fragment } from 'react';
 import uuid from 'uuid/v1';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { AppBar, NavigationDrawer } from '../components';
+import { AppBar, NavigationDrawer } from '../../components';
 
-import About from './About';
-import Notes from './Notes';
+import About from '../About/About';
+import Notes from '../Notes/Notes';
 
-import NoteService from '../services/NoteService';
+import './app.scss';
+import NoteService from '../../services/NoteService';
 
 class App extends React.Component {
   state = {
