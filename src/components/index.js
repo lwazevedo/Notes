@@ -6,7 +6,10 @@ import Note from './Note/Note';
 import NoteList from './NoteList/NoteList';
 import PageLayout from './Pagelayout/PageLayout';
 import Header from './Header/Header';
+import Button from './Button/Button';
+import ButtonLink from './Button/ButtonLink';
 
+import Center from './Center/Center';
 export {
   AppBar,
   NavigationDrawer,
@@ -15,5 +18,8 @@ export {
   Note,
   NoteList,
   PageLayout,
-  Header
+  Header,
+  Button,
+  ButtonLink,
+  Center
 };

@@ -9,7 +9,8 @@ const PageLayout = ({
   onSaveRetry,
   onOpenMenu,
   isMenuOpen,
-  onCloseMenu
+  onCloseMenu,
+  menu
 }) => (
   <Fragment>
     <AppBar
@@ -19,7 +20,11 @@ const PageLayout = ({
       onOpenMenu={onOpenMenu}
     />
     <div className='container'>{children}</div>
-    <NavigationDrawer isOpen={isMenuOpen} onCloseMenu={onCloseMenu} />
+    <NavigationDrawer
+      menu={menu}
+      isOpen={isMenuOpen}
+      onCloseMenu={onCloseMenu}
+    />
   </Fragment>
 );
 

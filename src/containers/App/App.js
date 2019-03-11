@@ -3,7 +3,7 @@ import uuid from 'uuid/v1';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { PageLayout } from '../../components';
-import { Routes } from '../index';
+import Routes, { menu } from '../Routes';
 import NoteService from '../../services/NoteService';
 
 class App extends React.Component {
@@ -129,6 +129,7 @@ class App extends React.Component {
           onOpenMenu={this.handleOpenMenu}
           isMenuOpen={isMenuOpen}
           onCloseMenu={this.handleCloseMenu}
+          menu={menu}
         >
           <Routes
             notes={notes}
