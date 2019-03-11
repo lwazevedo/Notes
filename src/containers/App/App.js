@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import uuid from 'uuid/v1';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { PageLayout } from '../../components';
 import Routes, { menu } from '../Routes';
 import NoteService from '../../services/NoteService';
+
+import { SettingsProvider } from '../../containers';
 
 class App extends React.Component {
   state = {
@@ -120,27 +122,29 @@ class App extends React.Component {
 
     return (
       <Router>
-        <PageLayout
-          isLoading={isLoading}
-          saveHasError={saveHasError}
-          onSaveRetry={() => {
-            this.handleSave(notes);
-          }}
-          onOpenMenu={this.handleOpenMenu}
-          isMenuOpen={isMenuOpen}
-          onCloseMenu={this.handleCloseMenu}
-          menu={menu}
-        >
-          <Routes
-            notes={notes}
-            reloadHasError={reloadHasError}
-            onRetry={this.handleReload}
-            onAddNote={this.handleAddNote}
-            onMove={this.handleMove}
-            onDelete={this.handleDelete}
-            onEdit={this.handleEdit}
-          />
-        </PageLayout>
+        <SettingsProvider>
+          <PageLayout
+            isLoading={isLoading}
+            saveHasError={saveHasError}
+            onSaveRetry={() => {
+              this.handleSave(notes);
+            }}
+            onOpenMenu={this.handleOpenMenu}
+            isMenuOpen={isMenuOpen}
+            onCloseMenu={this.handleCloseMenu}
+            menu={menu}
+          >
+            <Routes
+              notes={notes}
+              reloadHasError={reloadHasError}
+              onRetry={this.handleReload}
+              onAddNote={this.handleAddNote}
+              onMove={this.handleMove}
+              onDelete={this.handleDelete}
+              onEdit={this.handleEdit}
+            />
+          </PageLayout>
+        </SettingsProvider>
       </Router>
     );
   }

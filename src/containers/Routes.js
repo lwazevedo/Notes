@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { About, Notes, PageNotFound } from './index';
+import { AboutPage, NotesPage, PageNotFound, SettingsPage } from './index';
 
 export const menu = [
   { icon: 'note', label: 'Notas', path: '/' },
@@ -22,7 +22,7 @@ const Routes = ({
       path='/'
       exact
       render={props => (
-        <Notes
+        <NotesPage
           notes={notes}
           reloadHasError={reloadHasError}
           onRetry={onRetry}
@@ -34,7 +34,9 @@ const Routes = ({
         />
       )}
     />
-    <Route path='/about' exact component={About} />
+    <Route path='/about' exact component={AboutPage} />
+    <Route path='/settings' exact component={SettingsPage} />
+
     <Route component={PageNotFound} />
   </Switch>
 );

@@ -1,7 +1,19 @@
 import App from './App/App';
-import About from './About/About';
-import Notes from './Notes/Notes';
+import AboutPage from './About/AboutPage';
+import NotesPage from './Notes/NotesPage';
+import SettingsPage from './Settings/SettingsPage';
 import PageNotFound from './PageNotFound/PageNotFound';
 import Routes from './Routes';
+import SettingsContext from './Settings/SettingsContext';
+import SettingsProvider from './Settings/SettingsProvider';
 
-export { App, About, Notes, PageNotFound, Routes };
+export {
+  App,
+  AboutPage,
+  NotesPage,
+  PageNotFound,
+  Routes,
+  SettingsContext,
+  SettingsPage,
+  SettingsProvider
+};
