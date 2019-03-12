@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import './page-layout.scss';
 import { AppBar, NavigationDrawer } from '../index';
+import whithNotes from '../../containers/Notes/withNotes';
 
 const PageLayout = ({
   children,
@@ -28,4 +29,4 @@ const PageLayout = ({
   </Fragment>
 );
 
-export default PageLayout;
+export default whithNotes(PageLayout);

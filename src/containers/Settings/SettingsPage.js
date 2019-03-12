@@ -2,40 +2,42 @@ import React from 'react';
 
 import { Header } from '../../components';
 import './settings.scss';
-import SettingsContext from './SettingsContext';
+import withSettings from './withSettings';
 
 const themes = [
   { key: 'default', label: 'Padrão' },
-  { key: 'classic', label: 'Clássico', colorPrimary: '#795548' }
+  { key: 'classic', label: 'Clássico', navBar: { backgroundColor: '#795548' } },
+  {
+    key: 'light',
+    label: 'Light',
+    navBar: { backgroundColor: '#fff', color: '#212121' }
+  }
 ];
 
-const SettingsPage = () => (
+const SettingsPage = ({ theme: selectedTheme, toggleTheme }) => (
   <div>
     <Header centered>Temas</Header>
-    <SettingsContext.Consumer>
-      {({ theme: selectedTheme, toggleTheme }) => (
-        <div className='themes'>
-          {themes.map(theme => (
-            <button
-              key={theme.key}
-              className='themes__item'
-              style={{ backgroundColor: theme.colorPrimary }}
-              onClick={() => {
-                toggleTheme(theme);
-              }}
-            >
-              <p>
-                {theme.label}
-                {theme.key === selectedTheme.key && (
-                  <i className='material-icons'>check</i>
-                )}
-              </p>
-            </button>
-          ))}
-        </div>
-      )}
-    </SettingsContext.Consumer>
+
+    <div className='themes'>
+      {themes.map(theme => (
+        <button
+          key={theme.key}
+          className='themes__item'
+          style={theme.navBar}
+          onClick={() => {
+            toggleTheme(theme);
+          }}
+        >
+          <p>
+            {theme.label}
+            {theme.key === selectedTheme.key && (
+              <i className='material-icons'>check</i>
+            )}
+          </p>
+        </button>
+      ))}
+    </div>
   </div>
 );
 
-export default SettingsPage;
+export default withSettings(SettingsPage);

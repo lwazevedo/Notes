@@ -6,6 +6,8 @@ import PageNotFound from './PageNotFound/PageNotFound';
 import Routes from './Routes';
 import SettingsContext from './Settings/SettingsContext';
 import SettingsProvider from './Settings/SettingsProvider';
+import NotesContext from './Notes/NotesContext';
+import NotesProvider from './Notes/NotesProvider';
 
 export {
   App,
@@ -15,5 +17,7 @@ export {
   Routes,
   SettingsContext,
   SettingsPage,
-  SettingsProvider
+  SettingsProvider,
+  NotesContext,
+  NotesProvider
 };

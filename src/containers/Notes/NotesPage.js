@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { Error, NewNote, NoteList } from '../../components';
+import whithNotes from '../../containers/Notes/withNotes';
 
 const NotesPage = ({
   notes,
@@ -28,4 +29,4 @@ const NotesPage = ({
   );
 };
 
-export default NotesPage;
+export default whithNotes(NotesPage);
