@@ -8,6 +8,7 @@ import SettingsContext from './Settings/SettingsContext';
 import SettingsProvider from './Settings/SettingsProvider';
 import NotesContext from './Notes/NotesContext';
 import NotesProvider from './Notes/NotesProvider';
+import PageLayout from './Pagelayout/PageLayout';
 
 export {
   App,
@@ -19,5 +20,6 @@ export {
   SettingsPage,
   SettingsProvider,
   NotesContext,
-  NotesProvider
+  NotesProvider,
+  PageLayout
 };
