@@ -17,7 +17,14 @@ class PageLayout extends Component {
   };
 
   render() {
-    const { children, isLoading, saveHasError, onSaveRetry, menu } = this.props;
+    const {
+      children,
+      isLoading,
+      saveHasError,
+      onSaveRetry,
+      menu,
+      onPrintExcel
+    } = this.props;
     const { isMenuOpen } = this.state;
     return (
       <Fragment>
@@ -26,6 +33,7 @@ class PageLayout extends Component {
           saveHasError={saveHasError}
           onSaveRetry={onSaveRetry}
           onOpenMenu={this.handleOpenMenu}
+          onPrintExcel={onPrintExcel}
         />
         <Container>{children}</Container>
         <NavigationDrawer

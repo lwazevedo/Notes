@@ -7,6 +7,7 @@ const AppBar = ({
   isLoading,
   saveHasError,
   onSaveRetry,
+  onPrintExcel,
   onOpenMenu,
   theme
 }) => (
@@ -27,6 +28,14 @@ const AppBar = ({
           onClick={onSaveRetry}
         >
           <i className='material-icons'>cloud_off</i>
+        </button>
+      )}
+      {!isLoading && (
+        <button
+          className='app-bar__action app-bar__action--excel'
+          onClick={onPrintExcel}
+        >
+          <i className='material-icons'>table_chart</i>
         </button>
       )}
     </div>

@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import NotesContext from './NotesContext';
 import NoteService from '../../services/NoteService';
 import uuid from 'uuid/v1';
+import XLSX from 'xlsx';
 
 class NotesProvider extends Component {
   state = {
     notes: [],
     isLoading: false,
     reloadHasError: false,
-    saveHasError: false
+    saveHasError: false,
+    printExcelHasError: false
   };
 
   componentDidCatch() {
@@ -96,6 +98,24 @@ class NotesProvider extends Component {
         this.setState({ isLoading: false, saveHasError: true });
       });
   };
+
+  handlePrintExcel = () => {
+    this.setState({ isLoading: true, printExcelHasError: false });
+
+    NoteService.printExcel()
+      .then(notes => {
+        this.setState({ isLoading: false });
+
+        const ws = XLSX.utils.json_to_sheet(notes);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'SheetJS');
+        XLSX.writeFile(wb, 'SheetJS.xlsx');
+      })
+      .catch(() => {
+        this.setState({ isLoading: false, printExcelHasError: true });
+      });
+  };
+
   render() {
     return (
       <NotesContext.Provider
@@ -108,7 +128,8 @@ class NotesProvider extends Component {
           onAddNote: this.handleAddNote,
           onMove: this.handleMove,
           onDelete: this.handleDelete,
-          onEdit: this.handleEdit
+          onEdit: this.handleEdit,
+          onPrintExcel: this.handlePrintExcel
         }}
       >
         {this.props.children}
