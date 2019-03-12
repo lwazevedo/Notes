@@ -106,8 +106,12 @@ class NotesProvider extends Component {
       .then(notes => {
         this.setState({ isLoading: false });
 
+        const wscols = [{ wpx: 100 }];
         const ws = XLSX.utils.json_to_sheet(notes);
         const wb = XLSX.utils.book_new();
+
+        ws['!cols'] = [{ width: '50', wpx: 100 }, { width: '50', wpx: 50 }];
+
         XLSX.utils.book_append_sheet(wb, ws, 'SheetJS');
         XLSX.writeFile(wb, 'SheetJS.xlsx');
       })
